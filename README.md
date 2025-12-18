@@ -196,7 +196,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 If you encounter any issues or have questions:
 - Open an issue on GitHub
-- Contact: your.email@example.com
+- Contact: basem.esam.omar@gmail.com
 
 ## Screenshots 📸
 
