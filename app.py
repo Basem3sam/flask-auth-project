@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 import sqlite3
+import bcrypt
 from functools import wraps
 
 DATABASE = 'users.db'
@@ -53,7 +54,7 @@ def login():
     ).fetchone()
     conn.close()
 
-    if user and user['password'] == password:
+    if user and bcrypt.checkpw(password.encode('utf-8'), user['password'].encode('utf-8')):
       session['user_id'] = user['id']
       session['username'] = user['username']
       flash(f'Welcome back, {username}!')
@@ -84,12 +85,13 @@ def register():
       flash('Password must be at least 6 characters long!')
       return redirect(url_for('register'))
 
+    hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
     try:
       conn = get_db_connection()
       conn.execute(
         'INSERT INTO users (username, password) VALUES (?, ?)',
-        (username, password)
+        (username, hashed_password.decode('utf-8'))
       )
       conn.commit()
       conn.close()
