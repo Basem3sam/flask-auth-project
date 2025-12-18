@@ -184,7 +184,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Your Name**
 - GitHub: [@basem3sam](https://github.com/basem3sam)
-- Email: Basem.esam.omarl@gmail.com
+- Email: Basem.esam.omar@gmail.com
 
 ## Acknowledgments 🙏
 
