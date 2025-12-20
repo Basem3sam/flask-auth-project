@@ -1,47 +1,35 @@
-{% extends "base.html" %} {% block title %}Login{% endblock %} {% block content
-%}
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+  <div class="container mt-5" style="max-width: 400px">
+    <h2 class="text-center mb-4">Login</h2>
+    <form method="POST" action="{{ url_for('login') }}">
+      <div class="mb-3">
+        <label for="username" class="form-label">User Name</label>
+        <input type="text" class="form-control" id="username" name="username" required />
+      </div>
 
-<div class="container mt-5" style="max-width: 400px">
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="password" required />
+      </div>
 
-  <h2 class="text-center mb-4">Login</h2>
-  <form method="POST" action="{{ url_for('login') }}">
-    <div class="mb-3">
-      <label for="username" class="form-label">User Name</label>
-      <input
-        type="text"
-        class="form-control"
-        id="username"
-        name="username"
-        required
-      />
+      <button type="submit" class="btn btn-primary w-100">Login</button>
+    </form>
+
+    <div class="text-center mt-3">
+      <small>
+        Don't have an account?
+        <a href="{{ url_for('register') }}">Register here</a>
+      </small>
     </div>
 
-    <div class="mb-3">
-      <label for="password" class="form-label">Password</label>
-      <input
-        type="password"
-        class="form-control"
-        id="password"
-        name="password"
-        required
-      />
-    </div>
-
-    <button type="submit" class="btn btn-primary w-100">Login</button>
-  </form>
-
-  <div class="text-center mt-3">
-    <small>
-      Don't have an account?
-      <a href="{{ url_for('register') }}">Register here</a>
-    </small>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-info mt-2">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
   </div>
-
-  {% with messages = get_flashed_messages() %} {% if messages %} {% for message
-  in messages %}
-
-  <div class="alert alert-info">{{ message }}</div>
-  {% endfor %} {% endif %} {% endwith %}
-</div>
-
 {% endblock %}

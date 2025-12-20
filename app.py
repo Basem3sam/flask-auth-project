@@ -116,7 +116,7 @@ def dashboard():
     conn.close()
     
     return render_template('dashboard.html', user=user)
-  
+
 @app.route('/logout')
 @login_required
 def logout():

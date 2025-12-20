@@ -1,49 +1,30 @@
-# Python
+# Python cache
 __pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
+*.pyc
+
+# Virtual environments
 env/
 venv/
-ENV/
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
 
-# Flask
+# Flask instance folder
 instance/
-.webassets-cache
 
-# Database
-*.db
-*.sqlite
-*.sqlite3
+# Node / Prettier files
+node_modules/
+package-lock.json
 
-# Environment variables
+# Environment variables (⚠️ important)
 .env
-.env.local
 
-# IDEs
+# SQLite DBs
+*.sqlite3
+*.db
+
+# IDE settings
 .vscode/
 .idea/
-*.swp
-*.swo
-*~
 
-# OS
+# OS junk
 .DS_Store
 Thumbs.db
 

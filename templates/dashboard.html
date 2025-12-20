@@ -1,13 +1,16 @@
-{% extends "base.html" %} {% block title %}Dashboard{% endblock %} {% block
-content %}
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
 
-<div class="container mt-5 text-center">
-  <h2>Welcome back, {{ session.get('username') }}!</h2>
+{% block content %}
+  <div class="container mt-5 text-center">
+    <h2>Welcome back, {{ session.get('username') }}!</h2>
 
-  {% with messages = get_flashed_messages() %} {% if messages %} {% for message
-  in messages %}
-  <div class="alert alert-info">{{ message }}</div>
-  {% endfor %} {% endif %} {% endwith %}
-</div>
-
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-info mt-2">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+  </div>
 {% endblock %}
